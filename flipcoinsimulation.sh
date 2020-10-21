@@ -185,7 +185,23 @@ echo HHH HHT HTH HTT THH THT TTH TTT
 echo ${Combination["hhh"]} ${Combination["hht"]} ${Combination["hth"]} ${Combination["htt"]} ${Combination["thh"]} ${Combination["tht"]} ${Combination["tth"]} ${Combination["ttt"]}
 
 
+echo
 
+function Result()
+{
+SingleCombination
+echo h t
+echo ${Combination["h"]} ${Comination["t"]}
+
+doubleCombination
+echo hh ht th tt
+echo  ${Combination["hh"]} ${Comination["ht"]} ${Combination["th"]} ${Comination["tt"]}
+
+tripletCombination
+echo HHH HHT HTH HTT THH THT TTH TTT
+echo ${Combination["hhh"]} ${Combination["hht"]} ${Combination["hth"]} ${Combination["htt"]} ${Combination["thh"]} ${Combination["tht"]} ${Combination["tth"]} ${Combination["ttt"]}
+}
+Result
 
 
 

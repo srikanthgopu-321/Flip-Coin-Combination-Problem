@@ -121,9 +121,68 @@ echo hh ht th tt
 echo  ${Combination["hh"]} ${Comination["ht"]} ${Combination["th"]} ${Comination["tt"]}
 
 
+echo
+#uc4 as a simulator,do the same for triplet combination
 
+function tripletCombination()
+{
+	while [[ $flip -lt $no_of_flips ]]
+	do
+		head_or_tails
+		output1=$coin
+		head_or_tails
+		output2=$coin
+		head_or_tails
+		output3=$coin
+		if [[ $output1$output2$output3 == hhh ]]
+		then
+			Combination[hhh]=$(( ${Combination[hhh]}+1 ))
+		elif [[ $output1$output2$output3 == hht ]]
+		then
+			Combination[hht]=$(( ${Combination[hht]}+1 ))
+		elif [[ $output1$output2$output3 == htt ]]
+		then
+			Combination[htt]=$(( ${Combination[htt]}+1 ))
+		elif [[ $output1$output2$output3 == hth ]]
+		then
+			Combination[hth]=$(( ${Combination[hth]}+1 ))
+		elif [[ $output1$output2$output3 == thh ]]
+		then
+			Combination[thh]=$(( ${Combination[thh]}+1 ))
+		elif [[ $output1$output2$output3 == tth ]]
+		then
+			Combination[tth]=$(( ${Combination[tth]}+1 ))
+		elif [[ $output1$output2$output3 == tht ]]
+		then
+			Combination[tht]=$(( ${Combination[tht]}+1 ))
+		elif [[ $output1$output2$output3 == ttt ]]
+		then
+			Combination[ttt]=$(( ${Combination[ttt]}+1 ))
+		fi
+		((flip++))
+	done
+	HHHpercentage=$(( (${Combination[hhh]} * 100) / $flip ))
+	HHTpercentage=$(( (${Combination[hht]} * 100) / $flip ))
+	HTTpercentage=$(( (${Combination[htt]} * 100) / $flip ))
+	HTHpercentage=$(( (${Combination[hth]} * 100) / $flip ))
+	THHpercentage=$(( (${Combination[thh]} * 100) / $flip ))
+	TTHpercentage=$(( (${Combination[tth]} * 100) / $flip ))
+	TTTpercentage=$(( (${Combination[ttt]} * 100) / $flip ))
+	THTpercentage=$(( (${Combination[tht]} * 100) / $flip ))
 
+flip=0
+}
+SingleCombination
+echo h t
+echo ${Combination["h"]} ${Comination["t"]}
 
+doubleCombination
+echo hh ht th tt
+echo  ${Combination["hh"]} ${Comination["ht"]} ${Combination["th"]} ${Comination["tt"]}
+
+tripletCombination
+echo HHH HHT HTH HTT THH THT TTH TTT
+echo ${Combination["hhh"]} ${Combination["hht"]} ${Combination["hth"]} ${Combination["htt"]} ${Combination["thh"]} ${Combination["tht"]} ${Combination["tth"]} ${Combination["ttt"]}
 
 
 
